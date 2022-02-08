@@ -7,3 +7,4 @@ https://github.com/Annie-Huang/rtk-query-vs-rq
 
 PS C:\react> npx create-react-app rtk-query-vs-rq --template typescript --use-npm
 PS C:\react\rtk-query-vs-rq\server> npm install
+PS C:\react\rtk-query-vs-rq\rtk-todos> npm install redux react-redux @reduxjs/toolkit
