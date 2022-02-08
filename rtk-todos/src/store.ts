@@ -18,9 +18,20 @@ export const todoApi = createApi({
     // The first argument, Todo[], is the return object
     getAll: build.query<Todo[], void>({
       query: () => `todos`,
-      // I don't understand where is the id: "LIST" coming from as it's not in
-      // C:\react\rtk-query-vs-rq\server\src\modules\todos\todo.controller.ts
+      // Give this call a providesTags so if it ever gets invalidate, this call will be recalled again.
       providesTags: [{ type: "Todos", id: "LIST" }],
+    }),
+    // The first argument, Todo, is the request object, and the second argument, Todo, is the return object
+    updateTodo: build.mutation<Todo, Todo>({
+      query(todo) {
+        return {
+          url: `todos/${todo.id}`,
+          method: "PUT",
+          body: todo,
+        };
+      },
+      // Because it got the same value as the providesTags in 'getAll', 'getAll' api will be called again after this call is finished.
+      invalidatesTags: [{ type: "Todos", id: "LIST" }],
     }),
   }),
 });
