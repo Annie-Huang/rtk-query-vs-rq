@@ -3,7 +3,8 @@ import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { todoApi } from "./store";
 
 function TodoApp() {
-  return <div className="App"></div>;
+  const { data: todos } = todoApi.useGetAllQuery();
+  return <div className="App">{JSON.stringify(todos)}</div>;
 }
 
 function App() {

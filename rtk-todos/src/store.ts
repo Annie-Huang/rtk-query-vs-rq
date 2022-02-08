@@ -13,7 +13,10 @@ export const todoApi = createApi({
   // invalidatable tags. Basically define the kind of entity types without your system.
   tagTypes: ["Todos"],
   endpoints: (build) => ({
-    getAll: builder.query<Todo[], void>({
+    // Auto create 4 hooks with the endpoint name:
+    //      useGetAllQuery, useGeAllMutation, useLazyGetAllQuery, usePrefetch hooks
+    // The first argument, Todo[], is the return object
+    getAll: build.query<Todo[], void>({
       query: () => `todos`,
       // I don't understand where is the id: "LIST" coming from as it's not in
       // C:\react\rtk-query-vs-rq\server\src\modules\todos\todo.controller.ts
