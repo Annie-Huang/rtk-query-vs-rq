@@ -1,0 +1,8 @@
+Redux Toolkit Query vs React Query (https://www.youtube.com/watch?v=LDS1ll93P-s&t=668s)
+
+https://github.com/jherr/rtk-query-vs-rq
+https://github.com/Annie-Huang/rtk-query-vs-rq
+
+===================================================================
+
+PS C:\react> npx create-react-app rtk-query-vs-rq --template typescript --use-npm
