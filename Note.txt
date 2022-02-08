@@ -5,6 +5,10 @@ https://github.com/Annie-Huang/rtk-query-vs-rq
 
 https://redux-toolkit.js.org/rtk-query/overview#create-an-api-slice
 https://redux-toolkit.js.org/rtk-query/api/createApi#tagtypes
+
+I don't quite understand the providesTags algorithm:
+https://redux-toolkit.js.org/rtk-query/api/createApi#providestags
+https://redux-toolkit.js.org/rtk-query/usage/automated-refetching#providing-cache-data
 =================================================================================================
 
 PS C:\react> npx create-react-app rtk-query-vs-rq --template typescript --use-npm
@@ -13,3 +17,19 @@ PS C:\react\rtk-query-vs-rq\rtk-todos> npm install redux react-redux @reduxjs/to
 
 
 PS C:\react\rtk-query-vs-rq\rtk-todos> npm run start
+
+
+
+providesTags algorithm:
+--------------------------------------
+https://redux-toolkit.js.org/rtk-query/api/createApi#providestags
+
+Used by query endpoints. Determines which 'tag' is attached to the cached data returned by the query.
+Expects an array of tag type strings, an array of objects of tag types with ids, or a function that returns such an array.
+
+['Post'] - equivalent to 2
+[{ type: 'Post' }] - equivalent to 1
+[{ type: 'Post', id: 1 }]
+(result, error, arg) => ['Post'] - equivalent to 5
+(result, error, arg) => [{ type: 'Post' }] - equivalent to 4
+(result, error, arg) => [{ type: 'Post', id: 1 }]
