@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { Todo, todoApi } from "./store";
 
@@ -6,6 +6,13 @@ function TodoApp() {
   const { data: todos } = todoApi.useGetAllQuery();
   const [deleteTodo] = todoApi.useDeleteTodoMutation();
   const [updateTodo] = todoApi.useUpdateTodoMutation();
+  const [addTodo] = todoApi.useAddTodoMutation();
+
+  const textRef = useRef<HTMLInputElement>(null);
+  const onAdd = useCallback(() => {
+    addTodo(textRef.current!.value ?? "");
+    textRef.current!.value = "";
+  }, [addTodo]);
 
   const onToggle = useCallback(
     (todo: Todo) => updateTodo({ ...todo, done: !todo.done }),
@@ -39,6 +46,10 @@ function TodoApp() {
             </button>
           </React.Fragment>
         ))}
+      </div>
+      <div className="add">
+        <input type="text" ref={textRef} />
+        <button onClick={onAdd}>Add</button>
       </div>
     </div>
   );
