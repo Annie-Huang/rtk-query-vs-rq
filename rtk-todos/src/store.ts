@@ -33,7 +33,7 @@ export const todoApi = createApi({
       // Because it got the same value as the providesTags in 'getAll', 'getAll' api will be called again after this call is finished.
       invalidatesTags: [{ type: "Todos", id: "LIST" }],
     }),
-    deleteTodo: builder.mutation<Todo, Todo>({
+    deleteTodo: build.mutation<Todo, Todo>({
       query(todo) {
         return {
           url: `todos/${todo.id}`,

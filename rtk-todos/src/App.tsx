@@ -4,12 +4,15 @@ import { Todo, todoApi } from "./store";
 
 function TodoApp() {
   const { data: todos } = todoApi.useGetAllQuery();
+  const [deleteTodo] = todoApi.useDeleteTodoMutation();
   const [updateTodo] = todoApi.useUpdateTodoMutation();
 
   const onToggle = useCallback(
     (todo: Todo) => updateTodo({ ...todo, done: !todo.done }),
     [updateTodo]
   );
+
+  const onDelete = useCallback((todo: Todo) => deleteTodo(todo), [deleteTodo]);
 
   // return <div className="App">{JSON.stringify(todos)}</div>;
   return (
@@ -27,7 +30,13 @@ function TodoApp() {
               />
               <span>{todo.text}</span>
             </div>
-            <button onClick={() => {}}>Delete</button>
+            <button
+              onClick={() => {
+                onDelete(todo);
+              }}
+            >
+              Delete
+            </button>
           </React.Fragment>
         ))}
       </div>
