@@ -15,7 +15,7 @@ export const todoApi = createApi({
   endpoints: (build) => ({
     // Auto create 4 hooks with the endpoint name:
     //      useGetAllQuery, useGeAllMutation, useLazyGetAllQuery, usePrefetch hooks
-    // The first argument, Todo[], is the return object
+    // The first argument, Todo[], is the return object. The second argument void means we are not passing any parameter or argument when we make the query call
     getAll: build.query<Todo[], void>({
       query: () => `todos`,
       // Give this call a providesTags so if it ever gets invalidate, this call will be recalled again.

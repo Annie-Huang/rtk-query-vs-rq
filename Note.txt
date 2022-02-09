@@ -9,6 +9,37 @@ https://redux-toolkit.js.org/rtk-query/api/createApi#tagtypes
 I don't quite understand the providesTags algorithm:
 https://redux-toolkit.js.org/rtk-query/api/createApi#providestags
 https://redux-toolkit.js.org/rtk-query/usage/automated-refetching#providing-cache-data
+
+Other source file:
+------------------
+React Redux Toolkit RTK Query Tutorial | RTK Query CRUD | Data Fetching & Caching Tool - 1
+https://github.com/dmalvia/Redux_RTK_Query_Tutorial
+Got good information about setting it in store:
+    export const store = configureStore({
+        reducer: {
+            // Add the generated reducer as a specific top-level slice
+            [contactsApi.reducerPath]: contactsApi.reducer
+        },
+        // Adding the api middleware enables caching, invalidation, polling,
+        // and other useful features of `rtk-query`.
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware().concat(contactsApi.middleware),
+    })
+    <Provider store={store}>
+      <App />
+    </Provider>
+instead of the api provider like us do in here:
+    <ApiProvider api={todoApi}>
+      <TodoApp />
+    </ApiProvider>
+
+
+Learn Complete Redux-Toolkit & RTK Query with React in One Video | Redux-Toolkit RTK Query
+https://github.com/trickjsprogram/RTKQuery-crud
+
+React Redux RTK Query CRUD Application | RTK Query CRUD | Redux Toolkit
+https://github.com/trickjsprogram/rtk-query-starter
+
 =================================================================================================
 
 PS C:\react> npx create-react-app rtk-query-vs-rq --template typescript --use-npm
