@@ -19,6 +19,10 @@ PS C:\react\rtk-query-vs-rq\rtk-todos> npm install redux react-redux @reduxjs/to
 PS C:\react\rtk-query-vs-rq\rtk-todos> npm run start
 PS C:\react\rtk-query-vs-rq\server> npm run start
 
+(Redux dev tool seems not working with react query)
+PS C:\react\rtk-query-vs-rq\rq-todos> npm install
+PS C:\react\rtk-query-vs-rq\rq-todos> npm run start
+
 
 providesTags algorithm:
 --------------------------------------
