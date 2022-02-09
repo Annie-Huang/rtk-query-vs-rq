@@ -21,6 +21,18 @@ export const todoApi = createApi({
       // Give this call a providesTags so if it ever gets invalidate, this call will be recalled again.
       providesTags: [{ type: "Todos", id: "LIST" }],
     }),
+    addTodo: build.mutation<string, string>({
+      query(text) {
+        return {
+          url: `todos`,
+          method: "POST",
+          body: {
+            text,
+          },
+        };
+      },
+      invalidatesTags: [{ type: "Todos", id: "LIST" }],
+    }),
     // The first argument, Todo, is the request object, and the second argument, Todo, is the return object
     updateTodo: build.mutation<Todo, Todo>({
       query(todo) {
