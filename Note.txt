@@ -40,6 +40,9 @@ https://github.com/trickjsprogram/RTKQuery-crud
 React Redux RTK Query CRUD Application | RTK Query CRUD | Redux Toolkit
 https://github.com/trickjsprogram/rtk-query-starter
 
+React Redux Toolkit Query Tutorial and RTK Query CRUD Example App
+https://github.com/gitdagray/react_redux_toolkit/tree/main/06_lesson
+
 =================================================================================================
 
 PS C:\react> npx create-react-app rtk-query-vs-rq --template typescript --use-npm
